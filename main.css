@@ -1,0 +1,46 @@
+body {
+	margin: 0px;
+	background-color: #F2F2F2;
+}
+
+#navbar {
+	width: 100%;
+	background-color: #F2F2F2;
+	height: 70px;
+}
+
+#logo {
+	float: left;
+	display: inline-block;
+}
+
+nav {
+	float: right;
+	
+}
+
+li {
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	font-size: 30px;
+}
+
+#banner > img {
+	width: 100%;
+}
+
+section {
+	width: 800px;
+	margin: auto;
+}
+
+article {
+	background-color: #D9D9D9;
+	padding: 20px 20px 40px 40px;
+	margin: 30px;
+}
+
+p {
+	font-size: 20px;
+}
