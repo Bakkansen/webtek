@@ -1,0 +1,10 @@
+<!--#include file="ssi/header.html" -->
+<img id="header-img" src="images/headerimage.jpg">
+<div id="lore-container">
+	<div>The land</div>
+	<div>Humans</div>
+	<div>Dwarves</div>
+	<div>Elves</div>
+</div>
+<!--#include file="ssi/footer.html" -->
+	
