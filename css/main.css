@@ -19,11 +19,42 @@ nav {
 	
 }
 
-li {
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#navul, #navul > li {
 	display: inline-block;
 	float: left;
 	padding: 10px;
-	font-size: 30px;
+}
+
+.navlink {
+    color: #333333;
+    text-decoration: underline;
+    font-size: 45px;
+}
+
+a:link {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active {
+    color: #333333;
+    text-decoration: none;
 }
 
 #banner > img {
@@ -35,12 +66,37 @@ section {
 	margin: auto;
 }
 
+#articles {
+    display: inline-block;
+    float: left;
+    width: 70%
+}
+
 article {
+    
 	background-color: #D9D9D9;
-	padding: 20px 20px 40px 40px;
-	margin: 30px;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+
 }
 
 p {
-	font-size: 20px;
+	font-size: 16px;
+}
+
+.blogaside {
+    display: inline-block;
+    float: right;
+    background-color: #D9D9D9;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+    width:  20%
+}
+
+#searchbar {
+    width: 80%;
+}
+
+li {
+    list-style: none;
 }
