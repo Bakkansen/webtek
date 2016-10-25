@@ -143,9 +143,19 @@ function mobileButtonToggle(){
 	}
 }
 
+//When i change the style of any element with javascript, the element whos style i change gets inline style added to its html
+//This causes problems with the css media queries, since the inline style overrides the media queries
+//The following function uses media queries in javascript to fix the problem when inline style overrides the media queries in the css document
+function navbarResize(){
+	var nav = document.getElementsByTagName("nav")[0];
+	if (window.matchMedia("(max-width: 1000px)").matches == false && window.getComputedStyle(nav,null).getPropertyValue("display") == "none"){
+		nav.style.display = "block";
+	}
+}
 
 //When the document is loaded, the event listeners are added where they are supposed to be
 window.onload = function(){
+	window.addEventListener("resize", navbarResize);
 	document.getElementById("mobileButton").addEventListener("click", mobileButtonToggle);
 	animateDivBorders("ani", "2px", "#a9a9a9")
 }
