@@ -1,10 +1,39 @@
-<!--#include file="ssi/header.html" -->
-<img id="header-img" src="images/headerimage.jpg">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+</body>
+</html>
+<!--#include file="navbar.html" -->
+<div id="banner"><img src="images/banner.jpg" /></div>
 <div id="lore-container">
-	<div>The land</div>
-	<div>Humans</div>
-	<div>Dwarves</div>
-	<div>Elves</div>
+	<div class="lore-content">
+		<h1>The Land</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<div class="lore-content">
+		<h1>Humans</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum repudiandae asperiores et neque facilis tempore pariatur nam, animi cum deleniti nobis velit, modi atque odio quaerat nulla ipsum, eaque aliquid.</p>
+	</div>
+	<div class="lore-content">
+		<h1>Dwarves</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse amet assumenda odio dolor accusantium vel cupiditate dicta voluptas nihil modi quaerat perferendis porro eligendi ullam provident eaque sed, nam iste!</p>
+	</div>
+	<div class="lore-content">
+		<h1>Elves</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quaerat voluptates inventore accusamus fuga cumque saepe fugit quis vero voluptatem, incidunt laborum qui ipsa, provident, a. Ut vitae amet deleniti.</p>
+	</div>
+
 </div>
 <!--#include file="ssi/footer.html" -->
 	
