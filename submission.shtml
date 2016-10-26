@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+</body>
+</html>
+<!--#include file="navbar.html" -->
+<section>
+	<div class="horizontal-center">
+		<h1>Submit an event.</h1>
+		<p>Write an event that will be in the game and choose which biomes the text event will happen in.</p>
+		<form id="biome-form">		
+			<label for="biomes"><span>Chose an biome where the event occurs: </span></label>
+			<select name="biomes" required>
+				<option value="" selected disabled>-- Select a biome --</option>
+				<option value="ocean">Ocean</option>
+				<option value="coast">Coast</option>
+				<option value="lake">Lake</option>
+				<option value="lakeshore">Lakeshore</option>
+				<option value="river">River</option>
+				<option value="plains">Plains</option>
+			</select><br>
+
+			<textarea form="biome-form" rows="30" cols="100" placeholder="Dette er en placeholder tekst" required></textarea><br>
+			<div id="buttonHolder">
+				<input type="submit" value="Submit">				
+			</div>
+		</form>	
+	</div>
+</section>
+<!--#include file="ssi/footer.html"-->
