@@ -34,7 +34,7 @@ ul {
 .navlink {
     color: #333333;
     text-decoration: underline;
-    font-size: 45px;
+    font-size: 30px;
 }
 
 a:link {
@@ -63,7 +63,7 @@ a:active {
 }
 
 section {
-	width: 800px;
+	width: 1000px;
 	margin: auto;
 }
 
@@ -94,10 +94,39 @@ p {
     width:  20%
 }
 
+section, .blogaside {
+    margin-top: 20px;
+}
+
 #blogsearchbar {
     width: 80%;
 }
 
 li {
     list-style: none;
+}
+
+.tags {
+    font-size: 90%;
+    text-align: right;
+    color: grey;
+    margin-right: 0px;
+}
+#oldernewer {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 90%;
+}
+
+#older {
+    display: inline-block;
+    text-align: left;
+}
+
+#newer {
+    display: inline-block;
+    text-align: right;
+    margin-right: 0px;
+    
 }
