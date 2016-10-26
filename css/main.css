@@ -63,8 +63,9 @@ a:active {
 }
 
 section {
-	width: 1000px;
+	width: 100%;
 	margin: auto;
+    max-width: 1000px;
 }
 
 /* Spesifikk css. PrOv A bruk IDs og classes med deskriptive navn*/
@@ -73,7 +74,8 @@ section {
 #blogarticlescontainer {
     display: inline-block;
     float: left;
-    width: 70%
+    max-width: 700px;
+    width: 100%;
 }
 
 .blogarticle {
@@ -95,8 +97,8 @@ p {
     width:  20%
 }
 
-section, .blogaside {
-    margin-top: 20px;
+.blogarticle, .blogaside {
+    margin-top: 30px;
 }
 
 #blogsearchbar {
