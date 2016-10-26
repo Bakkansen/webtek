@@ -69,6 +69,7 @@ section {
 
 /* Spesifikk css. PrOv A bruk IDs og classes med deskriptive navn*/
 
+/* CSS FOR DEVBLOG */
 #blogarticlescontainer {
     display: inline-block;
     float: left;
@@ -128,5 +129,15 @@ li {
     display: inline-block;
     text-align: right;
     margin-right: 0px;
-    
 }
+
+.date {
+    color: grey;
+    font-size: 9px;
+}
+
+.blogheader {
+    margin-bottom: 0px;
+}
+
+/* CSS FOR DEVBLOG END */
