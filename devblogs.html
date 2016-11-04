@@ -1,40 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-   
+    <meta charset="utf-8">
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/main.js"></script>
   </head>
   <body>
-		<div include="navbar.html"></div>
-		<div include="banner.html"></div>
+		
 		
     <section>
+				<div include="navbar.html"></div>
+				<div include="banner.html"></div>
+				
         <section id="blogarticlescontainer">
-                <article class="blogarticle">
-                    <p><a><h1 class="blogheader">I suck at programming</h1></a>
-                    <span class="date">20.10.20116</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices tortor sit amet lectus scelerisque dignissim. Nullam sed dolor vitae arcu consectetur accumsan vitae quis nibh. Maecenas a justo nulla. Aenean tempus dapibus sem et faucibus. Nullam velit ligula, dignissim sit amet dui eu, commodo vehicula est. Pellentesque mattis cursus nulla et posuere. Vivamus ullamcorper diam vitae nibh bibendum, rutrum egestas sapien varius. Proin sit amet risus eu sem vestibulum tempus imperdiet quis dolor. Morbi nec finibus ante, non ultricies sem. In vulputate vitae eros in pretium. Suspendisse volutpat, elit sit amet mollis feugiat, augue lacus ultricies sapien, non fermentum odio augue eget arcu. Mauris sodales lectus facilisis tincidunt lacinia. Nullam lacinia, felis sit amet tempus venenatis, lectus est finibus nisi, et pretium quam eros non nisi.</p>
+					       
 
-                    <p>Duis placerat erat at tortor lacinia blandit. Sed et nisi id orci tristique fringilla nec luctus purus. In volutpat malesuada nisl eget dapibus. Curabitur non interdum velit. Sed sit amet fringilla neque, ut pulvinar enim. Proin ac pharetra tellus, eget venenatis mi. Aenean luctus fringilla mauris. Pellentesque laoreet orci nec tellus varius, euismod maximus nisl rhoncus. Vivamus purus ipsum, commodo sit amet aliquam ornare, tempor ut dui. In hac habitasse platea dictumst. Aenean a pretium nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae neque sem.</p>
-                    
-                    <p class="tags"><a class="tags">Game-design </a><a class="tags">LWJGL </a><a class="tags">GLFW </a></p>
-                </article>
-
-                <article class="blogarticle">
-                    <a><h1 class="blogheader">Procedural map generation with simplex noise</h1></a>
-                    <span class="date">20.10.20116</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices tortor sit amet lectus scelerisque dignissim. Nullam sed dolor vitae arcu consectetur accumsan vitae quis nibh. Maecenas a justo nulla. Aenean tempus dapibus sem et faucibus. Nullam velit ligula, dignissim sit amet dui eu, commodo vehicula est. Pellentesque mattis cursus nulla et posuere. Vivamus ullamcorper diam vitae nibh bibendum, rutrum egestas sapien varius. Proin sit amet risus eu sem vestibulum tempus imperdiet quis dolor. Morbi nec finibus ante, non ultricies sem. In vulputate vitae eros in pretium. Suspendisse volutpat, elit sit amet mollis feugiat, augue lacus ultricies sapien, non fermentum odio augue eget arcu. Mauris sodales lectus facilisis tincidunt lacinia. Nullam lacinia, felis sit amet tempus venenatis, lectus est finibus nisi, et pretium quam eros non nisi.</p>
-
-                    <p>Duis placerat erat at tortor lacinia blandit. Sed et nisi id orci tristique fringilla nec luctus purus. In volutpat malesuada nisl eget dapibus. Curabitur non interdum velit. Sed sit amet fringilla neque, ut pulvinar enim. Proin ac pharetra tellus, eget venenatis mi. Aenean luctus fringilla mauris. Pellentesque laoreet orci nec tellus varius, euismod maximus nisl rhoncus. Vivamus purus ipsum, commodo sit amet aliquam ornare, tempor ut dui. In hac habitasse platea dictumst. Aenean a pretium nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae neque sem.</p>
-                        
-                    <p class="tags"><a class="tags">OpenGL </a><a class="tags">Development </a><a class="tags">Game-design </a></p>
-                </article>
-            
-            <p id="oldernewer"><a id="older">Older</a><a id="newer">Newer</a></p>
-            
-            
+						<div id="blogarticlescontainerdiv"></div>
+					
+					
+            <p id="prevnext"><a href="#" id="prev" onclick="prev(); return false;">Prev</a><a href="#" id="next" onclick="next(); return false;">Next</a></p>
         </section>
+			
+				
         
         <div class=blogaside>
             <form>
@@ -45,33 +32,24 @@
         
         <div class=blogaside>
             
-            <ul>
+            <ul id="taglist">
                 <lh>Tags</lh>
-                <li><a href="http://www.google.com">Development</a></li>
-                <li><a href="#">Game-design</a></li>
-                <li><a href="#">GLFW</a></li>
-                <li><a href="#">LWJGL</a></li>
-                <li><a href="#">OpenGL</a></li>
-                <li><a href="#">Java</a></li>
-                <br />
+                
             </ul>
-            
-            <ul>
+            <br />
+            <ul id="archive">
                 <lh>Archive</lh>
-                <li><a href="http://www.google.com">OCTOBER 2016</a></li>
-                <li><a href="#">SEPTEMBER 2016</a></li>
-                <li><a href="#">AUGUST 2016</a></li>
-                <li><a href="#">JULI 2016</a></li>
-                <li><a href="#">JUNI 2016</a></li>
-                <li><a href="#">MAI 2016</a></li>
+               
             </ul>
            
         </div>
       
       </section>
-      
+     
 
-
-		<script>include();</script>
+			<div include="footer.html"></div>
+		
+		
+		<script>setupBlog();</script>
   </body>
 </html>
