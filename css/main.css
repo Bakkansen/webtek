@@ -1,7 +1,11 @@
 /* Felles for flere sider */
 body {
-	margin: 0px;
+	margin: auto;
 	background-color: #F2F2F2;
+	
+	min-height:100%;
+  position:relative;
+	
 }
 
 #navbar {
@@ -18,6 +22,11 @@ body {
 nav {
 	float: right;
 	
+}
+
+p {
+	font-size: 16px;
+	font-family: Serif, Georgia, Arial;
 }
 
 ul {
@@ -63,17 +72,57 @@ a:active {
 }
 
 section {
-	width: 1000px;
+	width: 100%;
+	height: 100%;
+	min-height: 1200px;
 	margin: auto;
+  max-width: 1100px;
+}
+
+lh {
+	
+	font-size: 150%;
+}
+
+.content {
+	background-color: #D9D9D9;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
 }
 
 /* Spesifikk css. PrOv A bruk IDs og classes med deskriptive navn*/
 
+/* CSS FOR DEVBLOG */
 #blogarticlescontainer {
-    display: inline-block;
+    display: block;
     float: left;
-    width: 70%
+		overflow: auto;	
+    max-width: 750px;
+    width: 100%;
+		height: 1200px;
 }
+
+#prevnext {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 120%;
+    width: 90%;
+		
+		margin: auto;
+}
+
+#prev {
+    display: inline-block;
+    text-align: left;
+}
+
+#next {
+    display: inline-block;
+    text-align: right;
+    margin-right: 0px;
+}
+
 
 .blogarticle {
 	background-color: #D9D9D9;
@@ -86,16 +135,17 @@ p {
 }
 
 .blogaside {
-    display: inline-block;
-    float: right;
-    background-color: #D9D9D9;
+	display: block;
+	float: right;
+	overflow: auto;	
+	background-color: #D9D9D9;
 	padding: 20px 20px 20px 20px;
 	margin: 10px;
-    width:  20%
+	width:  20%;
 }
 
-section, .blogaside {
-    margin-top: 20px;
+.blogarticle, .blogaside {
+    margin-top: 30px;
 }
 
 #blogsearchbar {
@@ -103,7 +153,11 @@ section, .blogaside {
 }
 
 li {
-    list-style: none;
+    list-style-type: none;
+}
+
+.archiveul {
+	margin-left: 10px;
 }
 
 .tags {
@@ -112,57 +166,75 @@ li {
     color: grey;
     margin-right: 0px;
 }
-#oldernewer {
-    display: flex;
-    justify-content: space-between;
+
+.date {
     color: grey;
-    font-size: 90%;
+    font-size: 9px;
 }
 
-#older {
-    display: inline-block;
-    text-align: left;
+.archivemonths {
+	font-size: 80%;
 }
 
-#newer {
-    display: inline-block;
-    text-align: right;
-    margin-right: 0px;
-    
+.blogheader {
+		font-size: 180%;
+		margin-bottom: 0px;
+	margin-top: 0px;
 }
 
-.lore-content{
-	background-color: #D9D9D9;
-	padding: 20px;
-	margin: 40px;
-}
+/* CSS FOR DEVBLOG END */
+
+/* footer */
+
 footer {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    background-color:  #333333; 
-    color: #CCCCCC;
-    height: 150px;
+	background-color: #333333;
+	
+	left: 0;
+	bottom: 0;
+	font-weight: bold;
+	color: #cccccc;
+	font-size: 14px;
+	height: 220px;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 10px;
+	padding: 8px auto;
+	text-align: center;
+}
+#social {
+	width: 104px;
+	margin: auto;
+}
+footer ul {
+	list-style: none;
+	padding: 0;
+}
+footer ul li{
+	display: inline;
+}
+.socicon {
+	height: 50px;
 }
 
-#footer-content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 50%;
-    margin: auto;
+/* Lore specific */ 
+.lore-content {
+	width: 80%;
+	background-color: #D9D9D9;
+	margin: 20px auto;
+	padding: 20px;
 }
 
-.some-icon {
-    width: 58px;    
-    padding: 25px 25px 0 25px;
+/* Submission specific */
+#submit-container {
+	width: 80%;
+	margin: 20px auto;
 }
 
 textarea {
+	opacity: 0;
 	resize: none;
 	width: 100%;
+	margin: 20px 0;
 }
 
 label {
@@ -170,18 +242,38 @@ label {
 }
 
 input[type=submit] {
+	opacity: 0;
 	margin: 10px;
 	padding: 10px;
 	width: 200px;	
 }
 
-.horizontal-center {
-    margin: auto;
-    width: 80%;
-    padding: 10px;
+@keyframes fadeIn {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
+}
+
+@keyframes fadeOut {
+	0% { opacity: 1 }
+	100% { opacity: 0 }
+}
+
+.fade-in {
+	opacity: 0;
+	-webkit-animation: fadeIn .3s linear forwards;
+	animation: fadeIn .3s linear forwards;
+}
+
+.fade-out {
+	opacity: 1;
+	-webkit-animation: fadeOut .3s linear forwards;
+	animation: fadeOut .3s linear forwards;
 }
 
 #buttonHolder {
 	width: 100%;
 	text-align: center;
 }
+
+
+

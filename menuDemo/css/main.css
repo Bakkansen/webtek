@@ -1,0 +1,184 @@
+/* Felles for flere sider */
+body {
+	margin: 0px;
+	background-color: #F2F2F2;
+}
+
+#navbar {
+	width: 100%;
+	background-color: #F2F2F2;
+	height: 70px;
+}
+
+#logo {
+	float: left;
+	display: inline-block;
+}
+
+#mobileButton {
+	display: none;
+	background-color: #a9a9a9;
+	height: 25px;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+#mobileButton * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+nav {
+	float: right;
+	
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#navul, #navul > li {
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	position: relative
+}
+
+@media screen and (max-width: 1000px) {
+	#logo {
+		float: none;
+	}
+	#mobileButton{
+		display: block;
+	}
+	nav {
+		display: none;
+	}
+	#navul {
+		display: inline;
+		float: none;
+	}
+	#navul > li {
+		float: none;
+		display: block;
+	}
+}
+
+.navlink {
+    color: #333333;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+a:link {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active {
+    color: #333333;
+    text-decoration: none;
+}
+
+#banner > img {
+	width: 100%;
+}
+
+section {
+	width: 100%;
+	margin: auto;
+    max-width: 1000px;
+}
+
+/* Spesifikk css. PrOv A bruk IDs og classes med deskriptive navn*/
+
+/* CSS FOR DEVBLOG */
+#blogarticlescontainer {
+    display: inline-block;
+    float: left;
+    max-width: 700px;
+    width: 100%;
+}
+
+.blogarticle {
+	background-color: #D9D9D9;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+}
+
+p {
+	font-size: 16px;
+}
+
+.blogaside {
+    display: inline-block;
+    float: right;
+    background-color: #D9D9D9;
+	padding: 20px 20px 20px 20px;
+	margin: 10px;
+    width:  20%
+}
+
+.blogarticle, .blogaside {
+    margin-top: 30px;
+}
+
+#blogsearchbar {
+    width: 80%;
+}
+
+li {
+    list-style: none;
+}
+
+.tags {
+    font-size: 90%;
+    text-align: right;
+    color: grey;
+    margin-right: 0px;
+}
+#oldernewer {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 90%;
+}
+
+#older {
+    display: inline-block;
+    text-align: left;
+}
+
+#newer {
+    display: inline-block;
+    text-align: right;
+    margin-right: 0px;
+}
+
+.date {
+    color: grey;
+    font-size: 9px;
+}
+
+.blogheader {
+    margin-bottom: 0px;
+}
+
+/* CSS FOR DEVBLOG END */
+
+0
