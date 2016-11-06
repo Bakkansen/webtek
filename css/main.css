@@ -232,7 +232,7 @@ footer ul li{
 
 textarea {
 	opacity: 0;
-	resize: none;
+	/*resize: none;*/
 	width: 100%;
 	margin: 20px 0;
 }
