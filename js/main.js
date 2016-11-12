@@ -1,33 +1,17 @@
-var articleNumber = 0;
-var numberOfArticles = 2;
-var tag = "";
-var monthG = "";
-var yearG = "";
-var textAreaShown = false;
-
-function getUnique(array) {
-    var seen = {};
-    var out = [];
-    var len = array.length;
-    var j = 0;
-    for(var i = 0; i < len; i++) {
-         var item = array[i].innerHTML;
-         if(seen[item] !== 1) {
-               seen[item] = 1;
-               out[j++] = array[i];
-         }
-    }
-    return out;
-}
-
-function includeReady(allElements, includeRequest) {
-    allElements.removeAttribute("include");
-    allElements.innerHTML = includeRequest.responseText;
+//Includes from link, removes include attribute and calls include(). Seperated from include() due to asynchronous nature of xmlhttprequests
+function includeReady(elements, includeRequest) {
+    elements.removeAttribute("include");
+    elements.innerHTML = includeRequest.responseText;
+		var arr = elements.getElementsByTagName("script")
+		for (var n = 0; n < arr.length; n++) {
+    	eval(arr[n].innerHTML)
+			console.log(arr[n].innerHTML)
+		}
     include();
-    delete includeRequest;
     includeRequest = null;
 }
 
+//Makes xmlhttprequest, runs through all elements in the dom until it comes to a div with the include="link here" attribute and then removes that attribute, includes from link and calls itself.
 function include() {
 	var allElements;
 	var fileName;
@@ -56,209 +40,165 @@ function include() {
   }
 }
 
-
-function getTags() {
-	var taglist = document.getElementById("taglist");
-	
-	var tagsRequest = new XMLHttpRequest();
-	
-	tagsRequest.open("GET", "blogstubs.html", true);
-	tagsRequest.responseType = "document";
-	
-	tagsRequest.onreadystatechange = function()	{
-		if (tagsRequest.readyState == 4 && tagsRequest.status == 200) {
-
-			var tagsResponse = tagsRequest.responseXML;
-			var tags = tagsResponse.getElementsByClassName("tag");
-			var tags = getUnique(tags);
-			
-			
-			
-			var len = tags.length;
-			
-
-			for (var i = 0; i < len; i++) {
-				var li = document.createElement("li"); 
-				
-				li.appendChild(tags[i]);
-				
-				taglist.appendChild(li);
-				
-			}
-			delete tagsRequest;
-			tagsRequest = null;
+//This function takes an element as input, and returns an array containing said element, its children, grandchildren etc
+function getChildren(elem){
+	children = [];
+	holder = [];
+	holder.push(elem);
+	while (holder.length > 0){
+		var elem = holder.pop();
+		children.push(elem);
+		for (var i = 0; i < elem.children.length; i++){
+			holder.push(elem.children[i]);
 		}
-	}      
-
-  tagsRequest.send();
-  	
+	}
+	return children;
 }
 
-function getDates() {
-	var archive = document.getElementById("archive");
+//This function makes elements animateable
+//aniElem is the element that should get animated
+//hoverElem is the element that triggers animation on mouseover or mouseout
+//WARNING: the element that gets animated needs to be able to act as an anchor for a absolutely positioned element
+function animateBorders(aniElem, hoverElem, borderSize, color){
+	//warning if aniElem is not an anchor
+	if (window.getComputedStyle(aniElem, null).getPropertyValue("position") != ("relative" || "absolute")){
+		console.log("WARNING: the animated element does not act as an anchor")
+	}
 	
-	var datesRequest = new XMLHttpRequest();
-	datesRequest.open("GET", "blogstubs.html", true);
-	datesRequest.responseType = "document";
+	for (var t = 0; t < 4; t++){
+		var newDiv = aniElem.appendChild(document.createElement("div"));
+		newDiv.className = "newDiv";
+		newDiv.style.position = "absolute";
+		newDiv.style.backgroundColor = color;
+	}
 	
-	datesRequest.onreadystatechange = function() {
-		if (datesRequest.readyState == 4 && datesRequest.status == 200) {
+	//styling the newly created divs
+	var newDivs = aniElem.getElementsByClassName("newDiv");
+	newDivs[0].style.top = "0";
+	newDivs[0].style.right = "0";
+	newDivs[0].style.width = borderSize;
+	newDivs[0].style.height = "0%";
+	
+	newDivs[1].style.top = "0";
+	newDivs[1].style.left = "0";
+	newDivs[1].style.width = "0%";
+	newDivs[1].style.height = borderSize;
+	
+	newDivs[2].style.bottom = "0";
+	newDivs[2].style.right = "0";
+	newDivs[2].style.width = "0%";
+	newDivs[2].style.height = borderSize;
 
-			var datesResponse = datesRequest.responseXML;
-			
-			var months = datesResponse.getElementsByClassName("month");
-			months = getUnique(months);
-			var year = "";
-			console.log(months);
-			
-			var len = months.length;
-
-			for (var i = 0; i < len; i++) {
-				if (months[i].parentElement.children[2].innerHTML != year) {
-					year = months[i].parentElement.children[2].innerHTML;
-					var ul = document.createElement("ul");
-					ul.setAttribute("class", "archiveul");
-					var li = document.createElement("li");
-					var li2 = document.createElement("li");
-					li.innerHTML = year;
-					archive.appendChild(li);
-					li2.appendChild(ul);
-					archive.appendChild(li2)
-				}
-				
-				var li = document.createElement("li"); 
-				var a = document.createElement("a"); 
-				a.appendChild(months[i]);
-				a.setAttribute("class", "archivemonths");
-				a.setAttribute("onclick", "getArticlesByDate(); return false;");
-				a.setAttribute("href", "#");
-				li.appendChild(a);
-				archive.lastChild.firstChild.appendChild(li);
-				delete datesRequest;
-				datesRequest = null;
-			}
-		}
-	}      
+	newDivs[3].style.bottom = "0";
+	newDivs[3].style.left = "0";
+	newDivs[3].style.width = borderSize;
+	newDivs[3].style.height = "0%";
 	
-  datesRequest.send();
-  	
+	//adding event listeners
+	hoverElem.addEventListener("mouseover", addBorder(aniElem, hoverElem));
+	hoverElem.addEventListener("mouseout", removeBorder(aniElem, hoverElem));	
 }
 
-function getArticles() {
-	document.getElementById("blogarticlescontainerdiv").innerHTML = "";
-	
-	var blogArticlesContainer = document.getElementById("blogarticlescontainerdiv");
-	
-	var articlesRequest = new XMLHttpRequest();
-	articlesRequest.open("GET", "blogstubs.html", true);
-	articlesRequest.responseType = "document";
-	
-	articlesRequest.onreadystatechange = function() {
-		if (articlesRequest.readyState == 4 && articlesRequest.status == 200) {
-			var articlesResponse = articlesRequest.responseXML;
-			
-			var articles = [];
-			
-			if (tag == "" && monthG == "") {
-				articles = articlesResponse.getElementsByClassName("blogarticle");
-			}
-			else if (tag != "") {
-				var blogArticleTags = articlesResponse.getElementsByClassName("tag");
-				for (var i = 0; i < blogArticleTags.length; i++) {
-					if (blogArticleTags[i].innerHTML == tag) {
-						
-						articles.push(blogArticleTags[i].parentElement.parentElement);
-						
-					}
-				}
+//this is the function that runs when someone mouses over a specific element
+function addBorder(aniElem, hoverElem){
+	//first i make an array containing the element that fires the event, and all its children, grandchildren, etc
+	var list = getChildren(hoverElem);
+	return function onMouseOver(event){
+		//e is the element that the mouse was on before you moused over the elem element
+		//https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget for more details
+		var e = event.relatedTarget;
+		//if you mouseover from one of elems children, the animation does not run
+		if (list.indexOf(e) != -1){
+			return;
+		}
+		//run the border animation
+		var newDiv = aniElem.getElementsByClassName("newDiv");
+		var x = 0;
+		var id = setInterval(frame, 1);
+		function frame(){
+			if (x == 100){
+				clearInterval(id);
 			}
 			else {
-				var blogArticleMonth = articlesResponse.getElementsByClassName("month");
-				for (var i = 0; i < blogArticleMonth.length; i++) {
-					if (blogArticleMonth[i].innerHTML == monthG) {
-						
-						articles.push(blogArticleMonth[i].parentElement.parentElement);
-						
-					}
-				}
-			}
-			
-			numberOfArticles = articles.length;
-
-			
-			for (var i = articleNumber; i < articleNumber+2; i++) {
-				console.log(articles[i]);
-				blogArticlesContainer.innerHTML += articles[i].outerHTML;
-
-			}
-			delete articlesRequest;
-			articlesRequest = null;
+				x += 2;
+				xString = String(x);
+				newDiv[0].style.height = xString + "%";
+				newDiv[1].style.width = xString + "%";
+				newDiv[2].style.width = xString + "%";
+				newDiv[3].style.height = xString + "%";
+			}		
 		}
-	}      
-
-  articlesRequest.send();
-  
+	};
 }
 
-function prev() {
-	if (articleNumber > 1)
-			articleNumber -= 2;
-	else 
-		articleNumber = 0;
-	getArticles();
-	
+//This function is nearly identical to addBorder, except the reverse animation
+function removeBorder(aniElem, hoverElem){
+	var list = getChildren(hoverElem);
+	return function onMouseOut(event){
+		var e = event.relatedTarget;
+		if (list.indexOf(e) != -1){
+			return;
+		}
+		var newDiv = aniElem.getElementsByClassName("newDiv");
+		var x = 100;
+		var id = setInterval(frame, 1);
+		function frame(){
+			if (x == 0){
+				clearInterval(id);
+			}
+			else{
+				x -= 2;
+				xString = String(x);
+				newDiv[0].style.height = xString + "%";
+				newDiv[1].style.width = xString + "%";
+				newDiv[2].style.width = xString + "%";
+				newDiv[3].style.height = xString + "%";			
+			}
+		}
+	};
 }
 
-function next() {
-	console.log(articleNumber);
-	console.log(numberOfArticles);
-
-	if (articleNumber < numberOfArticles-2)
-			articleNumber += 2;
-	else
-		articleNumber = numberOfArticles-2;
-	getArticles();
-}
-	
-function getArticlesByTag() {
-	yearG = "";
-	monthG = "";
-	articleNumber = 0;
-	tag = event.target.innerHTML;
-	getArticles();
-}
-	
-function getArticlesByDate() {
-	articleNumber = 0;
-	tag = "";
-	monthG = event.target.innerHTML;
-
-//	yearG = event.target.parentElement.parentElement.previousElementSibling.innerHTML;
-	getArticles();
-}
-
-function setupBlog() {
-	include();
-	getTags();
-	getDates();
-	getArticles();
-}
-
-function loadTextArea() {
-	var textArea = document.getElementById("submission-area");
-	if (!textAreaShown) {
-		textArea.className = "fade-in";
-		textAreaShown = true;
+//This function toggles the menu when in mobile mode
+function mobileButtonToggle(){
+	var nav = document.getElementsByTagName("nav")[0];
+	//When the document first loads the style is defined in an external style sheet.
+	//Because of that i cannot use element.style.display to get the display style
+	//To solve this I use getComputedStyle to make sure I get the nav display style even if it is from an external style sheet
+	var displayStyle = window.getComputedStyle(nav, null).getPropertyValue("display")
+	if (displayStyle == "none"){
+		nav.style.display = "block";
+	}
+	else if (displayStyle == "block"){
+		nav.style.display = "none";
+	}
+	else{
+		console.log("Something has gone horribly wrong with the mobileButtonToggle");
 	}
 }
 
-function loadSubmissionButton() {
-	console.log("Function called");
-	var button = document.getElementById("submit-button");
-	var textArea = document.getElementById("submission-area");
-	if (textArea.value != "") {
-		button.className = "fade-in";
-	} else {
-		button.className = "fade-out";
+//When i change the style of any element with javascript, the element whos style i change gets inline style added to its html
+//This causes problems with the css media queries, if the navbar has inline style display:none, the inline style overrides the external sheet
+//This function makes the navbar visible on resize when the screen is big enough
+function navbarResize(){
+	var nav = document.getElementsByTagName("nav")[0];
+	if (window.matchMedia("(max-width: 768px)").matches == false && window.getComputedStyle(nav,null).getPropertyValue("display") == "none"){
+		nav.style.display = "block";
 	}
+}
+
+//wait for html to load before executing
+function initNav() {
+	
+	
+		window.addEventListener("resize", navbarResize);
+		document.getElementById("mobileButton").addEventListener("click", mobileButtonToggle);
+		aniList = document.getElementsByClassName("ani");
+		hoverList = document.getElementsByClassName("navlink");
+		//make sure that animation does not get added at mobile device
+		if (window.matchMedia("(max-width: 768px)").matches == false){
+			for (var i = 0; i < aniList.length; i++){
+				animateBorders(aniList[i], hoverList[i], "2px", "#D9D9D9");
+			}
+		}
+
 }

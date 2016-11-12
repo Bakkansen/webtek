@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
   </head>
   <body>
-    
+		<div id="wrapper">
+    <div include="navbar.html"></div>
+		<div include="banner.html"></div>
 		
     <section>
 			
-			<div include="navbar.html"></div>
-    	<div include="banner.html"></div>
+    	<div class="content">
         <article class="blogarticle">
             <h1 class="blogheader">I suck at programming</h1><span class="date">20.10.20116</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices tortor sit amet lectus scelerisque dignissim. Nullam sed dolor vitae arcu consectetur accumsan vitae quis nibh. Maecenas a justo nulla. Aenean tempus dapibus sem et faucibus. Nullam velit ligula, dignissim sit amet dui eu, commodo vehicula est. Pellentesque mattis cursus nulla et posuere. Vivamus ullamcorper diam vitae nibh bibendum, rutrum egestas sapien varius. Proin sit amet risus eu sem vestibulum tempus imperdiet quis dolor. Morbi nec finibus ante, non ultricies sem. In vulputate vitae eros in pretium. Suspendisse volutpat, elit sit amet mollis feugiat, augue lacus ultricies sapien, non fermentum odio augue eget arcu. Mauris sodales lectus facilisis tincidunt lacinia. Nullam lacinia, felis sit amet tempus venenatis, lectus est finibus nisi, et pretium quam eros non nisi.</p>
@@ -27,9 +30,10 @@
             
             <p class="tags"><a class="tags">OpenGL </a><a class="tags">Development </a><a class="tags">Game-design </a></p>
         </article>
+			</div>
       </section>
-      
+      <div include="footer.html"></div>
       <script>include();</script>
-      
+		</div>
   </body>
 </html>

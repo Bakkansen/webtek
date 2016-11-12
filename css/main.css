@@ -1,32 +1,27 @@
-/* Felles for flere sider */
-body {
+/* -----------------------------------------------------Felles for flere sider */
+
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
+html, body {
 	margin: auto;
-	background-color: #F2F2F2;
-	
-	min-height:100%;
-  position:relative;
-	
-}
-
-#navbar {
-	width: 100%;
-	background-color: #F2F2F2;
-	height: 70px;
-}
-
-#logo {
-	float: left;
-	display: inline-block;
-}
-
-nav {
-	float: right;
-	
-}
-
-p {
+	background-color: #ffffff;
+	height:100%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	color: #566b78;
 	font-size: 16px;
-	font-family: Serif, Georgia, Arial;
+	line-height: 1.5;
+}
+
+#wrapper {
+	min-height: 100%;
+	position:relative;
+	overflow: hidden;
+	padding-bottom: 300px;
+}
+
+.clear {
+	clear: both;
+	
 }
 
 ul {
@@ -34,21 +29,20 @@ ul {
     padding: 0px;
 }
 
-#navul, #navul > li {
-	display: inline-block;
-	float: left;
-	padding: 10px;
+
+h1 {
+
+	text-align: center;
 }
 
-.navlink {
-    color: #333333;
-    text-decoration: underline;
-    font-size: 30px;
+
+h2 {
+	color: #444444;
 }
 
 a:link {
     color: #333333;
-    text-decoration: none;
+    text-decoration: none
 }
 
 a:visited {
@@ -56,27 +50,23 @@ a:visited {
     text-decoration: none;
 }
 
-
 a:hover {
-    color: #333333;
+/*    color: #2d7f83;*/
+    color: #ff731c;
     text-decoration: none;
 }
 
 a:active {
-    color: #333333;
+    color: #ff3705;
     text-decoration: none;
-}
-
-#banner > img {
-	width: 100%;
 }
 
 section {
 	width: 100%;
-	height: 100%;
-	min-height: 1200px;
 	margin: auto;
-  max-width: 1100px;
+/*  max-width: 1100px;*/
+	overflow: hidden;
+	align-content: center;
 }
 
 lh {
@@ -84,22 +74,284 @@ lh {
 	font-size: 150%;
 }
 
-.content {
-	background-color: #D9D9D9;
-	padding: 20px 20px 20px 20px;
-	margin: 10px;
+li {
+    list-style-type: none;
 }
 
-/* Spesifikk css. PrOv A bruk IDs og classes med deskriptive navn*/
+.content {
+/*	background: #F2F2F2;*/
+	width: 60em;
+	padding-left: 2%;
+	padding-right: 2%;
+	max-width: 96%;
+	margin: auto;
+	margin-top: 120px;
+	margin-bottom: 120px;
 
-/* CSS FOR DEVBLOG */
+}
+
+/* -----------------------------------------------------CSS FOR navbar.html */
+
+#navbar {
+	width: 100%;
+	background-color: #ffffff;
+	height: 80px;
+	overflow: hidden;
+	font-weight: 900;
+	
+}
+
+#helper {
+	    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+	
+}
+
+#logocontainer {
+
+	vertical-align: middle;
+}
+
+#logo {
+	max-width: 354px;
+	width: 70%;
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+#mobileButton {
+	display: none;
+	background-color: #ffffff;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	-moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 5px;
+	float: right;
+}
+#mobileButton div {
+  cursor: pointer;
+  background-color: black;
+  height: 5px;
+  width: 20px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+#icon1 {
+	top: 7px;
+}
+
+#icon2 {
+	top: 17px;
+}
+
+#icon3 {
+	top: 27px;
+}
+
+nav {
+	float: right;
+}
+
+#navul {
+	display: inline-block;
+}
+
+#navul, #navul > li {
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	position: relative;
+}
+
+#mobileButtonContainer{
+	display: none;
+	padding: 10px; 
+	margin: 10px; 
+	float: right;
+}
+
+
+@media screen and (max-width: 1050px) {
+	#logo {
+		float: none;
+	}
+	
+	#mobileButton{
+		display: block;
+	}
+		
+	#mobileButtonContainer{
+		display: block;
+	}
+	
+	nav {
+		display: none;
+		position: absolute;
+		right: 0px;
+		top: 60px;
+		background-color: white;
+	}
+	#navul {
+		display: inline;
+		float: none;
+	}
+	#navul > li {
+		float: none;
+		display: block;
+	}
+}
+
+.navlink {
+/*    color: #333333;*/
+/*    text-decoration: underline;*/
+    font-size: 25px;
+/*		font-family: Arial, serif;*/
+}
+
+/* -----------------------------------------------------CSS FOR banner.html */
+
+#banner > img {
+	width: 100%;
+}
+
+/* -----------------------------------------------------CSS FOR footer.html */
+
+footer {
+	background-color: #333333;
+	position:absolute;
+	left: 0;
+	bottom: 0;
+	font-weight: bold;
+	color: #cccccc;
+	font-size: 14px;
+	height: 300px;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 10px;
+	padding: 8px auto;
+	text-align: center;
+}
+#social {
+	margin: auto;
+	margin-top: 20px;
+}
+footer ul {
+	list-style: none;
+	padding: 0;
+}
+footer ul li{
+	display: inline;
+}
+.socicon {
+	height: 50px;
+}
+
+/* -----------------------------------------------------CSS FOR devblog.html */
+
 #blogarticlescontainer {
+/*
     display: block;
     float: left;
-		overflow: auto;	
-    max-width: 750px;
-    width: 100%;
-		height: 1200px;
+*/
+		display: block;
+		
+		overflow: auto;
+    max-width: 58em;
+    width: 96%;
+		padding-bottom: 0px;
+		padding-left: 2%;
+		padding-right: 2%;
+		margin-right: 0px;
+		margin-left: 0px;
+		
+		
+}
+
+#blogflex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+}
+
+.blogarticle {	
+	margin-bottom: 100px;
+	text-align: center;
+}
+
+.blogarticle > p {
+	text-align: left;
+}
+
+.blogaside {
+	overflow: auto;	
+	margin-left: 200px;
+	margin-right: 0%;
+	min-width: 200px;
+	text-align: left;
+}
+
+.blogarticle, .blogaside {
+    margin-top: 120px;
+	
+}
+
+#ErrorMsg {
+	margin: auto;
+	padding-bottom: 400px;
+	min-width: 200px;
+	text-align: left;
+}
+
+#blogsearchbar {
+    width: 80%;
+}
+
+#archive {
+	
+}
+
+.archiveul {
+	margin-left: 10px;
+	
+}
+
+.tags {
+    font-size: 80%;
+    text-align: left;
+    color: #cccccc;
+    margin-right: 0px;
+}
+
+.date {
+    color: grey;
+    font-size: 9px;
+		
+}
+
+.archivemonths {
+	
+	font-size: 80%;
+}
+
+.blogheader {
+		font-size: 180%;
+		margin-bottom: 0px;
+		margin-top: 0px;
 }
 
 #prevnext {
@@ -107,9 +359,13 @@ lh {
     justify-content: space-between;
     color: grey;
     font-size: 120%;
-    width: 90%;
-		
-		margin: auto;
+    width: 80%;
+		height: 100px;
+		padding-left: 10%;
+		padding-right: 10%;
+		padding-top: 2%;
+		font-style: italic;
+		font-weight: 900;
 }
 
 #prev {
@@ -123,108 +379,70 @@ lh {
     margin-right: 0px;
 }
 
+/* -----------------------------------------------------CSS FOR index.html */
 
-.blogarticle {
-	background-color: #D9D9D9;
-	padding: 20px 20px 20px 20px;
-	margin: 10px;
-}
-
-p {
-	font-size: 16px;
-}
-
-.blogaside {
-	display: block;
-	float: right;
-	overflow: auto;	
-	background-color: #D9D9D9;
-	padding: 20px 20px 20px 20px;
-	margin: 10px;
-	width:  20%;
-}
-
-.blogarticle, .blogaside {
-    margin-top: 30px;
-}
-
-#blogsearchbar {
-    width: 80%;
-}
-
-li {
-    list-style-type: none;
-}
-
-.archiveul {
-	margin-left: 10px;
-}
-
-.tags {
-    font-size: 90%;
-    text-align: right;
-    color: grey;
-    margin-right: 0px;
-}
-
-.date {
-    color: grey;
-    font-size: 9px;
-}
-
-.archivemonths {
-	font-size: 80%;
-}
-
-.blogheader {
-		font-size: 180%;
-		margin-bottom: 0px;
-	margin-top: 0px;
-}
-
-/* CSS FOR DEVBLOG END */
-
-/* footer */
-
-footer {
-	background-color: #333333;
-	
-	left: 0;
-	bottom: 0;
-	font-weight: bold;
-	color: #cccccc;
-	font-size: 14px;
-	height: 220px;
-	width: 100%;
+.imageSlider{
 	overflow: hidden;
-	margin-top: 10px;
-	padding: 8px auto;
+	width: 100%;
+}
+
+#form{
+	width: 100%;
+	display: inline-block;
+	
 	text-align: center;
 }
-#social {
-	width: 104px;
-	margin: auto;
-}
-footer ul {
-	list-style: none;
-	padding: 0;
-}
-footer ul li{
-	display: inline;
-}
-.socicon {
-	height: 50px;
+
+#sliderList{
+	width: 100%;
+	list-style-type: none;
+	right:0%;
 }
 
-/* Lore specific */ 
-.lore-content {
-	width: 80%;
-	background-color: #D9D9D9;
-	margin: 20px auto;
-	padding: 20px;
+.yo {
+	width: 100%;
 }
 
-/* Submission specific */
+#iconWrapper{
+	margin: 50px auto auto auto;
+	align-content: center;
+	width: 100%;
+	text-align: center;
+	color: black;
+	margin-top: 100px;
+}
+
+.indexIcon p{
+	padding-left:20%;
+	padding-right:20%;
+}
+
+.indexIcon img{
+	height: 400px;
+	
+}
+
+.indexIcon{
+	vertical-align: top;
+	width: 32%;
+	display: inline-block;
+	text-align: center;
+	height: 800px;
+	min-width: 300px;
+
+}
+
+.iconimg {
+	max-width: 100%;
+}
+
+/* -----------------------------------------------------CSS FOR lore.html */ 
+
+
+/* -----------------------------------------------------CSS FOR tutorial.html */ 
+
+
+/* -----------------------------------------------------CSS FOR submission.html */
 #submit-container {
 	width: 80%;
 	margin: 20px auto;
@@ -246,6 +464,10 @@ input[type=submit] {
 	margin: 10px;
 	padding: 10px;
 	width: 200px;	
+}
+
+select {
+	margin: auto;
 }
 
 @keyframes fadeIn {
@@ -270,7 +492,7 @@ input[type=submit] {
 	animation: fadeOut .3s linear forwards;
 }
 
-#buttonHolder {
+.buttonHolder {
 	width: 100%;
 	text-align: center;
 }

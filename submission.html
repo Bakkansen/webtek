@@ -2,36 +2,45 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Submit text-event</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/main.js"></script>
+	<script src="js/submission.js"></script>
 </head>
 <body>
-	<section>
+	<div id="wrapper">
 		<div include="navbar.html"></div>
-		<div id="submit-container">
-			<h1>Submit an event.</h1>
-			<p>Write an event that will be in the game and choose which biomes the text event will happen in.</p>
-			<form id="biome-form">		
-				<label for="biomes"><span>Chose a biome where the event occurs: </span></label>
-				<select name="biomes" onchange="loadTextArea()" required>
-					<option value="" selected disabled>-- Select a biome --</option>
-					<option value="ocean">Ocean</option>
-					<option value="coast">Coast</option>
-					<option value="lake">Lake</option>
-					<option value="lakeshore">Lakeshore</option>
-					<option value="river">River</option>
-					<option value="plains">Plains</option>
-				</select><br>
+		<div include="banner.html"></div>
+		<section>
+			<div class="content">
+			<div id="submit-container">
+				<h1>Submit an event.</h1>
+				<p>Write an event that will be in the game and choose which biomes the text event will happen in.</p>
+				<form id="biome-form">		
+<!--					<label for="biomes"><span>Chose a biome where the event occurs: </span></label>-->
+					<div class="buttonHolder">
+						<select name="biomes" onchange="loadTextArea()" required>
+							<option value="" selected disabled>-- Select a biome --</option>
+							<option value="ocean">Ocean</option>
+							<option value="coast">Coast</option>
+							<option value="lake">Lake</option>
+							<option value="lakeshore">Lakeshore</option>
+							<option value="river">River</option>
+							<option value="plains">Plains</option>
+						</select><br>
+					</div>
 
-				<textarea id="submission-area" form="biome-form" rows="30" cols="100" onkeyup="loadSubmissionButton()" placeholder="Describe the event in detail." required></textarea><br>
-				<div id="buttonHolder">
-					<input id="submit-button" type="submit" value="Submit">				
-				</div>
-			</form>	
-		</div>
-	</section>
-	<div include="footer.html"></div>
-	<script>include();</script>
+					<textarea id="submission-area" form="biome-form" rows="30" cols="100" onkeyup="loadSubmissionButton()" placeholder="Describe the event in detail." required></textarea><br>
+					<div class="buttonHolder">
+						<input id="submit-button" type="submit" value="Submit">		
+					</div>
+				</form>	
+			</div>
+			</div>
+		</section>
+		<div include="footer.html"></div>
+		<script>include();</script>
+	</div>
 </body>
 </html>
